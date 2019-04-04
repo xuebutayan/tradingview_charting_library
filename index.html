@@ -21,8 +21,7 @@
 				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 
-			TradingView.onready(function()
-			{
+			function initOnReady() {
 				var widget = window.tvWidget = new TradingView.widget({
 					// debug: true, // uncomment this line to see Library errors and warnings in the console
 					fullscreen: true,
@@ -43,8 +42,9 @@
 					user_id: 'public_user_id',
 					theme: getParameterByName('theme'),
 				});
-			});
-
+			};
+			
+			window.addEventListener('DOMContentLoaded', initOnReady, false);
 		</script>
 
 	</head>

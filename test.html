@@ -25,8 +25,7 @@
 				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 
-			TradingView.onready(function()
-			{
+			function initOnReady() {
 				var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("https://demo_feed.tradingview.com");
 
 				var widget = window.tvWidget = new TradingView.widget({
@@ -87,8 +86,128 @@
 				var savedWidgetContent = null;
 				var savedTemplate = null;
 
-				widget.onChartReady(function() {
+				widget.headerReady().then(function() {
+					function createHeaderButton(text, title, clickHandler, options) {
+						var button = widget.createButton(options);
+						button.setAttribute('title', title);
+						button.textContent =  text;
+						button.addEventListener('click', clickHandler);
+					}
 
+					createHeaderButton('save', 'Save chart', function() {
+						widget.save(function(data) {
+							savedWidgetContent = data;
+							alert('Saved');
+						});
+					});
+
+					createHeaderButton('load', 'Load chart', function() {
+						if (savedWidgetContent) {
+							widget.load(savedWidgetContent);
+						}
+					});
+
+					createHeaderButton('load reference', 'Load reference', function() {
+						widget.load(referenceChart);
+					});
+
+					createHeaderButton('load reference 2', 'Load reference 2', function() {
+						widget.load(referenceChart2);
+					});
+
+					createHeaderButton('save template (-i)', '', function() {
+						savedTemplate = widget.activeChart().createStudyTemplate({ saveInterval: false });
+					});
+
+					createHeaderButton('save template (+i)', '', function() {
+						savedTemplate = widget.activeChart().createStudyTemplate({ saveInterval: true });
+					});
+
+					createHeaderButton('apply template', '', function() {
+						if (savedTemplate) {
+							widget.chart().applyStudyTemplate(savedTemplate);
+						}
+					});
+
+					createHeaderButton('F, 2D', '', function() {
+						widget.setSymbol('F', '2D');
+					});
+
+					createHeaderButton('Clear marks', '', function() {
+						widget.chart().clearMarks();
+					});
+
+					createHeaderButton('+BB', 'Insert Bollinger Bands', function() {
+						console.log(widget.chart().createStudy(
+								'Bollinger Bands',
+								false,
+								false,
+								[
+									10 + parseInt(Math.random() * 10),
+									3 + parseInt(Math.random() * 3)
+								]
+						));
+					});
+
+					createHeaderButton('+MA', 'Insert Moving Average', function() {
+						console.log(widget.chart().createStudy(
+								'Moving Average',
+								false,
+								false,
+								[10 + parseInt(Math.random() * 10)]
+						));
+					}, { align: 'right' });
+
+					createHeaderButton('+MA++', 'Insert Moving Average', function() {
+						console.log(widget.chart().createStudy(
+								'Moving Average',
+								false,
+								false,
+								[10 + parseInt(Math.random() * 10)],
+								undefined,
+								{ 'plot.color.0': '#FF0000' }
+						));
+					}, { align: 'right' });
+
+					createHeaderButton('+Stoch', 'Insert Stochastic', function() {
+						console.log(widget.chart().createStudy(
+								'Stochastic',
+								false,
+								false,
+								[12, 3, 3],
+								undefined,
+								{
+									'%d.color': '#000000',
+									'%k.color': '#00FF00',
+								}
+						));
+					}, { align: 'right' });
+
+					createHeaderButton('new order', '', function() {
+						widget.chart().createOrderLine();
+					});
+
+					createHeaderButton('rm all studies', '', function() {
+						widget.chart().removeAllStudies();
+					});
+
+					createHeaderButton('rm all shapes', '', function() {
+						widget.chart().removeAllShapes();
+					});
+
+					createHeaderButton('set view', '', function() {
+						widget.chart().setVisibleRange({
+							from: Date.UTC(2012, 2, 3) / 1000,
+							to: Date.UTC(2013, 3, 3) / 1000
+						});
+					});
+
+					createHeaderButton('get range', '', function() {
+						console.log(widget.activeChart().getVisibleRange());
+					});
+				});
+
+				widget.onChartReady(function() {
 					widget.onContextMenu(function(time, price) {
 						return [
 							{
@@ -103,140 +222,6 @@
 						];
 					});
 
-					widget.createButton()
-						.attr('title', "Save chart")
-						.on('click', function (e) {
-							widget.save(function(data) {
-								savedWidgetContent = data;
-								alert('Saved');
-							})
-						 })
-						.append('<span>save</span>');
-
-					widget.createButton()
-						.attr('title', "Load chart")
-						.on('click', function (e) {
-							if (savedWidgetContent) {
-								widget.load(savedWidgetContent);
-							}
-						 })
-						.append('<span>load</span>');
-
-					widget.createButton()
-						.attr('title', "Load chart")
-						.on('click', function (e) {
-							widget.load(referenceChart);
-						 })
-						.append('<span>load reference</span>');
-
-					widget.createButton()
-						.attr('title', "Load chart")
-						.on('click', function (e) {
-							widget.load(referenceChart2);
-						 })
-						.append('<span>load reference 2</span>');
-
-
-
-					widget.createButton()
-						.on('click', function (e) {
-							savedTemplate = widget.activeChart().createStudyTemplate({saveInterval: false});
-						 })
-						.append('<span>save template (-i)</span>');
-
-					widget.createButton()
-						.on('click', function (e) {
-							savedTemplate = widget.activeChart().createStudyTemplate({saveInterval: true});
-						 })
-						.append('<span>save template (+i)</span>');
-
-					widget.createButton()
-						.on('click', function (e) {
-							if (savedTemplate) {
-								widget.chart().applyStudyTemplate(savedTemplate);
-							}
-						 })
-						.append('<span>apply template</span>');
-
-
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.setSymbol("F", '2D');
-						 })
-						.append('<span>F, 2D</span>');
-
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.chart().clearMarks();
-						 })
-						.append('<span>Clear marks</span>');
-
-					widget.createButton()
-						.attr('title', "Add item")
-						.on('click', function (e) {
-							widget.chart().createStudy("Bollinger Bands", false, false, [
-									10 + parseInt(Math.random() * 10),
-									3 + parseInt(Math.random() * 3)
-								], function (guid) {
-									console.log(guid);
-								}
-							);
-						 })
-						.append('<span>+BB</span>');
-
-					widget.createButton({align: "right"})
-						.attr('title', "Add item")
-						.on('click', function (e) {
-							widget.chart().createStudy("Moving Average", false, false, [
-									10 + parseInt(Math.random() * 10)
-								], function (guid) {
-									console.log(guid);
-								}
-							);
-						 })
-						.append('<span>+MA</span>');
-
-						widget.createButton({align: "right"})
-						.attr('title', "Add item")
-						.on('click', function (e) {
-							widget.chart().createStudy("Moving Average", false, false, [
-									10 + parseInt(Math.random() * 10)
-								], function (guid) {
-									console.log(guid);
-								},
-								{"plot.color.0" : "#FF0000"}
-							);
-						 })
-						.append('<span>+MA++</span>');
-
-					widget.createButton({align: "right"})
-						.attr('title', "Add item")
-						.on('click', function (e) {
-							widget.chart().createStudy('Stochastic', false, false, [12, 3, 3], null, {"%d.color" : "#000000", "%k.color" : "#00FF00"});
-						 })
-						.append('<span>+Stoch</span>');
-
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.chart().createOrderLine();
-						 })
-						.append('<span>new order</span>');
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.chart().removeAllStudies();
-						 })
-						.append('<span>rm all studies</span>');
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.chart().removeAllShapes();
-						 })
-						.append('<span>rm all shapes</span>');
-
 					widget.onGrayedObjectClicked(function(x) {
 						alert("You are not permitted to use " + x.name + "(" + x.type + ")");
 					});
@@ -244,21 +229,6 @@
 					widget.onShortcut("alt+s", function() {
 						widget.chart().executeActionById("symbolSearch");
 					});
-
-					widget.createButton()
-						.on('click', function (e) {
-							widget.chart().setVisibleRange({
-								from: Date.UTC(2012, 2, 3) / 1000,
-								to: Date.UTC(2013, 3, 3) / 1000
-							});
-						 })
-						.append('<span>set view</span>');
-
-					widget.createButton()
-						.on('click', function (e) {
-							console.log(widget.activeChart().getVisibleRange());
-						})
-						.append('<span>get range</span>');
 
 					var position = widget.chart().createPositionLine()
 						.onReverse(function(text) {
@@ -389,7 +359,7 @@
 						} // end of getMinAndMaxPrice callback
 					); // end of getMinAndMaxPrice
 				}); // end of widget.onChartReady
-			}); // end of TradingView.onready
+			}; // end of TradingView.onready
 
 			function getMinAndMaxPrice(udf_datafeed, time1, time2, callback) {
 				var minPrice = 99999, maxPrice = 0;
@@ -414,6 +384,8 @@
 				}, function(err) {
 				});
 			}
+
+			window.addEventListener('DOMContentLoaded', initOnReady, false);
 		</script>
 
 	</head>

@@ -21,8 +21,7 @@
 				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 			}
 
-			TradingView.onready(function()
-			{
+		  function initOnReady() {
 				var widget = new TradingView.widget({
 					fullscreen: true,
 					symbol: 'AAPL',
@@ -43,8 +42,9 @@
 						"scalesProperties.textColor" : "#AAA"
 					}
 				});
-			})
+			};
 
+			window.addEventListener('DOMContentLoaded', initOnReady, false);
 		</script>
 
 	</head>

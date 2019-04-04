@@ -14,8 +14,7 @@
 
 		<script type="text/javascript">
 
-			TradingView.onready(function()
-			{
+			function initOnReady() {
 				var widget = new TradingView.widget({
 					fullscreen: true,
 					symbol: 'AAPL',
@@ -29,8 +28,9 @@
 					disabled_features: ["use_localstorage_for_settings"],
 					preset: "mobile"
 				});
-			})
+			};
 
+			window.addEventListener('DOMContentLoaded', initOnReady, false);
 		</script>
 
 	</head>
