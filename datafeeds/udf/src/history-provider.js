@@ -56,6 +56,7 @@ var HistoryProvider = /** @class */ (function () {
             })
                 .catch(function (reason) {
                 var reasonString = getErrorMessage(reason);
+                // tslint:disable-next-line:no-console
                 console.warn("HistoryProvider: getBars() failed, error=" + reasonString);
                 reject(reasonString);
             });

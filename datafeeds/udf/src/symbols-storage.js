@@ -17,6 +17,7 @@ var SymbolsStorage = /** @class */ (function () {
         this._readyPromise = this._init();
         this._readyPromise.catch(function (error) {
             // seems it is impossible
+            // tslint:disable-next-line:no-console
             console.error("SymbolsStorage: Cannot init, error=" + error.toString());
         });
     }
@@ -153,6 +154,7 @@ var SymbolsStorage = /** @class */ (function () {
                     has_weekly_and_monthly: extractField(data, 'has-weekly-and-monthly', symbolIndex),
                     has_empty_bars: extractField(data, 'has-empty-bars', symbolIndex),
                     volume_precision: definedValueOrDefault(extractField(data, 'volume-precision', symbolIndex), 0),
+                    format: 'price',
                 };
                 this._symbolsInfo[ticker] = symbolInfo;
                 this._symbolsInfo[symbolName] = symbolInfo;
