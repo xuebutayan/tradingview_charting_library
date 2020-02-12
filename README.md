@@ -1,6 +1,6 @@
 # TradingView Charting Library
 
-[Demo][demo-url] | [Documentation][wiki-url] | [Discord community](https://discord.gg/E6UthXZ)
+[Demo][demo-url] | [Documentation][wiki-url] | [Tutorial][tutorial-url] | [Discord community](https://discord.gg/E6UthXZ)
 
 This repository contains the TradingView Charting Library package. If you use Git in your project, please feel free to use this repo as a submodule in yours.
 
@@ -18,3 +18,4 @@ We use GitHub's [Issues tracker](https://github.com/tradingview/charting_library
 
 [demo-url]: https://charting-library.tradingview.com/
 [wiki-url]: https://github.com/tradingview/charting_library/wiki
+[tutorial-url]: https://github.com/tradingview/charting-library-tutorial
