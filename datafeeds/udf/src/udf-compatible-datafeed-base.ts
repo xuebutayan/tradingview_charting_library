@@ -348,7 +348,16 @@ function defaultConfiguration(): UdfCompatibleConfiguration {
 	return {
 		supports_search: false,
 		supports_group_request: true,
-		supported_resolutions: ['1', '5', '15', '30', '60', '1D', '1W', '1M'],
+		supported_resolutions: [
+			'1' as ResolutionString,
+			'5' as ResolutionString,
+			'15' as ResolutionString,
+			'30' as ResolutionString,
+			'60' as ResolutionString,
+			'1D' as ResolutionString,
+			'1W' as ResolutionString,
+			'1M' as ResolutionString,
+		],
 		supports_marks: false,
 		supports_timescale_marks: false,
 	};

@@ -13,8 +13,8 @@ function extractField(data, field, arrayIndex) {
  */
 var UDFCompatibleDatafeedBase = /** @class */ (function () {
     function UDFCompatibleDatafeedBase(datafeedURL, quotesProvider, requester, updateFrequency) {
-        if (updateFrequency === void 0) { updateFrequency = 10 * 1000; }
         var _this = this;
+        if (updateFrequency === void 0) { updateFrequency = 10 * 1000; }
         this._configuration = defaultConfiguration();
         this._symbolsStorage = null;
         this._datafeedURL = datafeedURL;
@@ -236,7 +236,16 @@ function defaultConfiguration() {
     return {
         supports_search: false,
         supports_group_request: true,
-        supported_resolutions: ['1', '5', '15', '30', '60', '1D', '1W', '1M'],
+        supported_resolutions: [
+            '1',
+            '5',
+            '15',
+            '30',
+            '60',
+            '1D',
+            '1W',
+            '1M',
+        ],
         supports_marks: false,
         supports_timescale_marks: false,
     };

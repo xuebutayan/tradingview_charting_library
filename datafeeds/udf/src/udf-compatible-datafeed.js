@@ -1,9 +1,9 @@
-import * as tslib_1 from "tslib";
+import { __extends } from "tslib";
 import { UDFCompatibleDatafeedBase } from './udf-compatible-datafeed-base';
 import { QuotesProvider } from './quotes-provider';
 import { Requester } from './requester';
 var UDFCompatibleDatafeed = /** @class */ (function (_super) {
-    tslib_1.__extends(UDFCompatibleDatafeed, _super);
+    __extends(UDFCompatibleDatafeed, _super);
     function UDFCompatibleDatafeed(datafeedURL, updateFrequency) {
         if (updateFrequency === void 0) { updateFrequency = 10 * 1000; }
         var _this = this;
