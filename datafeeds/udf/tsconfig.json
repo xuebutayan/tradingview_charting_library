@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"baseUrl": "./src",
+		"allowSyntheticDefaultImports": true,
 		"importHelpers": true,
 		"lib": [
 			"dom",
@@ -16,9 +16,11 @@
 		"noImplicitReturns": true,
 		"noUnusedLocals": true,
 		"outDir": "./lib/",
+		"rootDir": "src",
 		"sourceMap": false,
 		"strict": true,
-		"target": "es5"
+		"target": "es5",
+		"types": []
 	},
 	"include": [
 		"./src/**/*.ts"
