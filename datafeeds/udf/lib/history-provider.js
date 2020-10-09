@@ -12,6 +12,9 @@ var HistoryProvider = /** @class */ (function () {
             from: rangeStartDate,
             to: rangeEndDate,
         };
+        if (symbolInfo.currency_code !== undefined) {
+            requestParams.currencyCode = symbolInfo.currency_code;
+        }
         return new Promise(function (resolve, reject) {
             _this._requester.sendRequest(_this._datafeedUrl, 'history', requestParams)
                 .then(function (response) {
@@ -33,18 +36,18 @@ var HistoryProvider = /** @class */ (function () {
                     for (var i = 0; i < response.t.length; ++i) {
                         var barValue = {
                             time: response.t[i] * 1000,
-                            close: Number(response.c[i]),
-                            open: Number(response.c[i]),
-                            high: Number(response.c[i]),
-                            low: Number(response.c[i]),
+                            close: parseFloat(response.c[i]),
+                            open: parseFloat(response.c[i]),
+                            high: parseFloat(response.c[i]),
+                            low: parseFloat(response.c[i]),
                         };
                         if (ohlPresent) {
-                            barValue.open = Number(response.o[i]);
-                            barValue.high = Number(response.h[i]);
-                            barValue.low = Number(response.l[i]);
+                            barValue.open = parseFloat(response.o[i]);
+                            barValue.high = parseFloat(response.h[i]);
+                            barValue.low = parseFloat(response.l[i]);
                         }
                         if (volumePresent) {
-                            barValue.volume = Number(response.v[i]);
+                            barValue.volume = parseFloat(response.v[i]);
                         }
                         bars.push(barValue);
                     }

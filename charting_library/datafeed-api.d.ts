@@ -52,6 +52,7 @@ export interface DOMLevel {
 export interface DatafeedConfiguration {
 	exchanges?: Exchange[];
 	supported_resolutions?: ResolutionString[];
+	currency_codes?: string[];
 	supports_marks?: boolean;
 	supports_time?: boolean;
 	supports_timescale_marks?: boolean;
@@ -207,6 +208,7 @@ export interface LibrarySymbolInfo {
 	sector?: string;
 	industry?: string;
 	currency_code?: string;
+	original_currency_code?: string;
 }
 export interface Mark {
 	id: string | number;
@@ -238,6 +240,9 @@ export interface SearchSymbolResultItem {
 	exchange: string;
 	ticker: string;
 	type: string;
+}
+export interface SymbolResolveExtension {
+	currencyCode?: string;
 }
 export interface TimescaleMark {
 	id: string | number;

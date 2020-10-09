@@ -6,6 +6,10 @@ function extractField(data, field, arrayIndex, valueIsArray) {
     }
     return value;
 }
+function symbolWithCurrencyKey(symbol, currency) {
+    // here we're using a separator that quite possible shouldn't be in a real symbol name
+    return symbol + (currency !== undefined ? '_%|#|%_' + currency : '');
+}
 var SymbolsStorage = /** @class */ (function () {
     function SymbolsStorage(datafeedUrl, datafeedSupportedResolutions, requester) {
         this._exchangesList = ['NYSE', 'FOREX', 'AMEX'];
@@ -22,10 +26,10 @@ var SymbolsStorage = /** @class */ (function () {
         });
     }
     // BEWARE: this function does not consider symbol's exchange
-    SymbolsStorage.prototype.resolveSymbol = function (symbolName) {
+    SymbolsStorage.prototype.resolveSymbol = function (symbolName, currencyCode) {
         var _this = this;
         return this._readyPromise.then(function () {
-            var symbolInfo = _this._symbolsInfo[symbolName];
+            var symbolInfo = _this._symbolsInfo[symbolWithCurrencyKey(symbolName, currencyCode)];
             if (symbolInfo === undefined) {
                 return Promise.reject('invalid symbol');
             }
@@ -129,6 +133,7 @@ var SymbolsStorage = /** @class */ (function () {
                 var listedExchange = extractField(data, 'exchange-listed', symbolIndex);
                 var tradedExchange = extractField(data, 'exchange-traded', symbolIndex);
                 var fullName = tradedExchange + ':' + symbolName;
+                var currencyCode = extractField(data, 'currency-code', symbolIndex);
                 var ticker = tickerPresent ? extractField(data, 'ticker', symbolIndex) : symbolName;
                 var symbolInfo = {
                     ticker: ticker,
@@ -137,6 +142,8 @@ var SymbolsStorage = /** @class */ (function () {
                     full_name: fullName,
                     listed_exchange: listedExchange,
                     exchange: tradedExchange,
+                    currency_code: currencyCode,
+                    original_currency_code: extractField(data, 'original-currency-code', symbolIndex),
                     description: extractField(data, 'description', symbolIndex),
                     has_intraday: definedValueOrDefault(extractField(data, 'has-intraday', symbolIndex), false),
                     has_no_volume: definedValueOrDefault(extractField(data, 'has-no-volume', symbolIndex), false),
@@ -159,6 +166,11 @@ var SymbolsStorage = /** @class */ (function () {
                 this._symbolsInfo[ticker] = symbolInfo;
                 this._symbolsInfo[symbolName] = symbolInfo;
                 this._symbolsInfo[fullName] = symbolInfo;
+                if (currencyCode !== undefined) {
+                    this._symbolsInfo[symbolWithCurrencyKey(ticker, currencyCode)] = symbolInfo;
+                    this._symbolsInfo[symbolWithCurrencyKey(symbolName, currencyCode)] = symbolInfo;
+                    this._symbolsInfo[symbolWithCurrencyKey(fullName, currencyCode)] = symbolInfo;
+                }
                 this._symbolsList.push(symbolName);
             }
         }

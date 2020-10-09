@@ -161,8 +161,9 @@ var UDFCompatibleDatafeedBase = /** @class */ (function () {
                 .catch(onResult.bind(null, []));
         }
     };
-    UDFCompatibleDatafeedBase.prototype.resolveSymbol = function (symbolName, onResolve, onError) {
+    UDFCompatibleDatafeedBase.prototype.resolveSymbol = function (symbolName, onResolve, onError, extension) {
         logMessage('Resolve requested');
+        var currencyCode = extension && extension.currencyCode;
         var resolveRequestStartTime = Date.now();
         function onResultReady(symbolInfo) {
             logMessage("Symbol resolved: " + (Date.now() - resolveRequestStartTime) + "ms");
@@ -172,6 +173,9 @@ var UDFCompatibleDatafeedBase = /** @class */ (function () {
             var params = {
                 symbol: symbolName,
             };
+            if (currencyCode !== undefined) {
+                params.currencyCode = currencyCode;
+            }
             this._send('symbols', params)
                 .then(function (response) {
                 if (response.s !== undefined) {
@@ -190,7 +194,7 @@ var UDFCompatibleDatafeedBase = /** @class */ (function () {
             if (this._symbolsStorage === null) {
                 throw new Error('UdfCompatibleDatafeed: inconsistent configuration (symbols storage)');
             }
-            this._symbolsStorage.resolveSymbol(symbolName).then(onResultReady).catch(onError);
+            this._symbolsStorage.resolveSymbol(symbolName, currencyCode).then(onResultReady).catch(onError);
         }
     };
     UDFCompatibleDatafeedBase.prototype.getBars = function (symbolInfo, resolution, rangeStartDate, rangeEndDate, onResult, onError) {

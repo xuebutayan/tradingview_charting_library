@@ -13,10 +13,10 @@ import {
 } from './helpers';
 
 import { Requester } from './requester';
-
+// tslint:disable: no-any
 interface HistoryPartialDataResponse extends UdfOkResponse {
-	t: number[];
-	c: number[];
+	t: any;
+	c: any;
 	o?: never;
 	h?: never;
 	l?: never;
@@ -24,14 +24,14 @@ interface HistoryPartialDataResponse extends UdfOkResponse {
 }
 
 interface HistoryFullDataResponse extends UdfOkResponse {
-	t: number[];
-	c: number[];
-	o: number[];
-	h: number[];
-	l: number[];
-	v: number[];
+	t: any;
+	c: any;
+	o: any;
+	h: any;
+	l: any;
+	v: any;
 }
-
+// tslint:enable: no-any
 interface HistoryNoDataResponse extends UdfResponse {
 	s: 'no_data';
 	nextTime?: number;
@@ -61,6 +61,10 @@ export class HistoryProvider {
 			to: rangeEndDate,
 		};
 
+		if (symbolInfo.currency_code !== undefined) {
+			requestParams.currencyCode = symbolInfo.currency_code;
+		}
+
 		return new Promise((resolve: (result: GetBarsResult) => void, reject: (reason: string) => void) => {
 			this._requester.sendRequest<HistoryResponse>(this._datafeedUrl, 'history', requestParams)
 				.then((response: HistoryResponse | UdfErrorResponse) => {
@@ -84,20 +88,20 @@ export class HistoryProvider {
 						for (let i = 0; i < response.t.length; ++i) {
 							const barValue: Bar = {
 								time: response.t[i] * 1000,
-								close: Number(response.c[i]),
-								open: Number(response.c[i]),
-								high: Number(response.c[i]),
-								low: Number(response.c[i]),
+								close: parseFloat(response.c[i]),
+								open: parseFloat(response.c[i]),
+								high: parseFloat(response.c[i]),
+								low: parseFloat(response.c[i]),
 							};
 
 							if (ohlPresent) {
-								barValue.open = Number((response as HistoryFullDataResponse).o[i]);
-								barValue.high = Number((response as HistoryFullDataResponse).h[i]);
-								barValue.low = Number((response as HistoryFullDataResponse).l[i]);
+								barValue.open = parseFloat((response as HistoryFullDataResponse).o[i]);
+								barValue.high = parseFloat((response as HistoryFullDataResponse).h[i]);
+								barValue.low = parseFloat((response as HistoryFullDataResponse).l[i]);
 							}
 
 							if (volumePresent) {
-								barValue.volume = Number((response as HistoryFullDataResponse).v[i]);
+								barValue.volume = parseFloat((response as HistoryFullDataResponse).v[i]);
 							}
 
 							bars.push(barValue);
