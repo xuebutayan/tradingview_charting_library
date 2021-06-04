@@ -53,7 +53,12 @@ var DataPulseProvider = /** @class */ (function () {
         // BEWARE: please note we really need 2 bars, not the only last one
         // see the explanation below. `10` is the `large enough` value to work around holidays
         var rangeStartTime = rangeEndTime - periodLengthSeconds(subscriptionRecord.resolution, 10);
-        return this._historyProvider.getBars(subscriptionRecord.symbolInfo, subscriptionRecord.resolution, rangeStartTime, rangeEndTime)
+        return this._historyProvider.getBars(subscriptionRecord.symbolInfo, subscriptionRecord.resolution, {
+            from: rangeStartTime,
+            to: rangeEndTime,
+            countBack: 2,
+            firstDataRequest: false,
+        })
             .then(function (result) {
             _this._onSubscriberDataReceived(listenerGuid, result);
         });

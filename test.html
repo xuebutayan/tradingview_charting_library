@@ -34,7 +34,7 @@
 					symbol: 'AAPL',
 					interval: '1D',
 					toolbar_bg: '#f4f7f9',
-					container_id: "tv_chart_container",
+					container: "tv_chart_container",
 
 					//	BEWARE: no trailing slash is expected in feed URL
 					datafeed: udf_datafeed,
@@ -364,7 +364,8 @@
 				var minPrice = 99999, maxPrice = 0;
 				var minPriceTime, maxPriceTime;
 				udf_datafeed.resolveSymbol("AAPL", function(symbolInfo) {
-					udf_datafeed.getBars(symbolInfo, "D", time1, time2, function(bars) {
+					var periodParams = { from: time1, to: time2 };
+					udf_datafeed.getBars(symbolInfo, "D", periodParams, function(bars) {
 						bars.forEach(function(bar) {
 							if (bar.time / 1000 >= time1 && bar.time / 1000 <= time2) {
 								if (bar.high > maxPrice) {
@@ -379,8 +380,10 @@
 						});
 						callback(minPrice, maxPrice, minPriceTime, maxPriceTime);
 					}, function(err) {
+						throw new Error(err.message);
 					});
 				}, function(err) {
+					throw new Error(err.message);
 				});
 			}
 

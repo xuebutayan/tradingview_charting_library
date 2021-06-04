@@ -46,9 +46,6 @@ var UDFCompatibleDatafeedBase = /** @class */ (function () {
     UDFCompatibleDatafeedBase.prototype.unsubscribeQuotes = function (listenerGuid) {
         this._quotesPulseProvider.unsubscribeQuotes(listenerGuid);
     };
-    UDFCompatibleDatafeedBase.prototype.calculateHistoryDepth = function (resolution, resolutionBack, intervalBack) {
-        return undefined;
-    };
     UDFCompatibleDatafeedBase.prototype.getMarks = function (symbolInfo, from, to, onDataCallback, resolution) {
         if (!this._configuration.supports_marks) {
             return;
@@ -197,8 +194,8 @@ var UDFCompatibleDatafeedBase = /** @class */ (function () {
             this._symbolsStorage.resolveSymbol(symbolName, currencyCode).then(onResultReady).catch(onError);
         }
     };
-    UDFCompatibleDatafeedBase.prototype.getBars = function (symbolInfo, resolution, rangeStartDate, rangeEndDate, onResult, onError) {
-        this._historyProvider.getBars(symbolInfo, resolution, rangeStartDate, rangeEndDate)
+    UDFCompatibleDatafeedBase.prototype.getBars = function (symbolInfo, resolution, periodParams, onResult, onError) {
+        this._historyProvider.getBars(symbolInfo, resolution, periodParams)
             .then(function (result) {
             onResult(result.bars, result.meta);
         })
