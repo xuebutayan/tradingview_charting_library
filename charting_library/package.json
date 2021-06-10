@@ -1,6 +1,6 @@
 {
   "private": true,
-  "description": "CL v19.029 (internal id 40dd8ca8 @ 2021-06-04T12:46:07.553Z)",
+  "description": "CL v19.030 (internal id f4b993ed @ 2021-06-10T11:03:14.501Z)",
   "type": "module",
   "main": "charting_library.cjs.js",
   "module": "charting_library.esm.js",
