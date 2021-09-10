@@ -47,6 +47,9 @@ interface ExchangeDataResponseSymbolData {
 	'has-no-volume'?: boolean;
 	'currency-code'?: string;
 	'original-currency-code'?: string;
+	'unit-id'?: string;
+	'original-unit-id'?: string;
+	'unit-conversion-types'?: string[];
 
 	'volume-precision'?: number;
 }
@@ -80,9 +83,9 @@ function extractField<Field extends keyof ExchangeDataResponseSymbolData>(data: 
 	return value as ExchangeDataResponseSymbolData[Field];
 }
 
-function symbolWithCurrencyKey(symbol: string, currency?: string): string {
+function symbolKey(symbol: string, currency?: string, unit?: string): string {
 	// here we're using a separator that quite possible shouldn't be in a real symbol name
-	return symbol + (currency !== undefined ? '_%|#|%_' + currency : '');
+	return symbol + (currency !== undefined ? '_%|#|%_' + currency : '') + (unit !== undefined ? '_%|#|%_' + unit : '');
 }
 
 export class SymbolsStorage {
@@ -107,9 +110,9 @@ export class SymbolsStorage {
 	}
 
 	// BEWARE: this function does not consider symbol's exchange
-	public resolveSymbol(symbolName: string, currencyCode?: string): Promise<LibrarySymbolInfo> {
+	public resolveSymbol(symbolName: string, currencyCode?: string, unitId?: string): Promise<LibrarySymbolInfo> {
 		return this._readyPromise.then(() => {
-			const symbolInfo = this._symbolsInfo[symbolWithCurrencyKey(symbolName, currencyCode)];
+			const symbolInfo = this._symbolsInfo[symbolKey(symbolName, currencyCode, unitId)];
 			if (symbolInfo === undefined) {
 				return Promise.reject('invalid symbol');
 			}
@@ -234,6 +237,7 @@ export class SymbolsStorage {
 				const tradedExchange = extractField(data, 'exchange-traded', symbolIndex);
 				const fullName = tradedExchange + ':' + symbolName;
 				const currencyCode = extractField(data, 'currency-code', symbolIndex);
+				const unitId = extractField(data, 'unit-id', symbolIndex);
 
 				const ticker = tickerPresent ? (extractField(data, 'ticker', symbolIndex) as string) : symbolName;
 
@@ -246,6 +250,9 @@ export class SymbolsStorage {
 					exchange: tradedExchange,
 					currency_code: currencyCode,
 					original_currency_code: extractField(data, 'original-currency-code', symbolIndex),
+					unit_id: unitId,
+					original_unit_id: extractField(data, 'original-unit-id', symbolIndex),
+					unit_conversion_types: extractField(data, 'unit-conversion-types', symbolIndex, true),
 					description: extractField(data, 'description', symbolIndex),
 					has_intraday: definedValueOrDefault(extractField(data, 'has-intraday', symbolIndex), false),
 					has_no_volume: definedValueOrDefault(extractField(data, 'has-no-volume', symbolIndex), false),
@@ -268,10 +275,10 @@ export class SymbolsStorage {
 				this._symbolsInfo[ticker] = symbolInfo;
 				this._symbolsInfo[symbolName] = symbolInfo;
 				this._symbolsInfo[fullName] = symbolInfo;
-				if (currencyCode !== undefined) {
-					this._symbolsInfo[symbolWithCurrencyKey(ticker, currencyCode)] = symbolInfo;
-					this._symbolsInfo[symbolWithCurrencyKey(symbolName, currencyCode)] = symbolInfo;
-					this._symbolsInfo[symbolWithCurrencyKey(fullName, currencyCode)] = symbolInfo;
+				if (currencyCode !== undefined || unitId !== undefined) {
+					this._symbolsInfo[symbolKey(ticker, currencyCode, unitId)] = symbolInfo;
+					this._symbolsInfo[symbolKey(symbolName, currencyCode, unitId)] = symbolInfo;
+					this._symbolsInfo[symbolKey(fullName, currencyCode, unitId)] = symbolInfo;
 				}
 
 				this._symbolsList.push(symbolName);

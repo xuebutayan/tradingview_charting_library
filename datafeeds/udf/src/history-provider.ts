@@ -71,6 +71,10 @@ export class HistoryProvider {
 			requestParams.currencyCode = symbolInfo.currency_code;
 		}
 
+		if (symbolInfo.unit_id !== undefined) {
+			requestParams.unitId = symbolInfo.unit_id;
+		}
+
 		return new Promise((resolve: (result: GetBarsResult) => void, reject: (reason: string) => void) => {
 			this._requester.sendRequest<HistoryResponse>(this._datafeedUrl, 'history', requestParams)
 				.then((response: HistoryResponse | UdfErrorResponse) => {

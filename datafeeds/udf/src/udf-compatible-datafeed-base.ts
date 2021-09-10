@@ -262,6 +262,7 @@ export class UDFCompatibleDatafeedBase implements IExternalDatafeed, IDatafeedQu
 		logMessage('Resolve requested');
 
 		const currencyCode = extension && extension.currencyCode;
+		const unitId = extension && extension.unitId;
 
 		const resolveRequestStartTime = Date.now();
 		function onResultReady(symbolInfo: LibrarySymbolInfo): void {
@@ -275,6 +276,9 @@ export class UDFCompatibleDatafeedBase implements IExternalDatafeed, IDatafeedQu
 			};
 			if (currencyCode !== undefined) {
 				params.currencyCode = currencyCode;
+			}
+			if (unitId !== undefined) {
+				params.unitId = unitId;
 			}
 
 			this._send<ResolveSymbolResponse | UdfErrorResponse>('symbols', params)
@@ -294,7 +298,7 @@ export class UDFCompatibleDatafeedBase implements IExternalDatafeed, IDatafeedQu
 				throw new Error('UdfCompatibleDatafeed: inconsistent configuration (symbols storage)');
 			}
 
-			this._symbolsStorage.resolveSymbol(symbolName, currencyCode).then(onResultReady).catch(onError);
+			this._symbolsStorage.resolveSymbol(symbolName, currencyCode, unitId).then(onResultReady).catch(onError);
 		}
 	}
 
