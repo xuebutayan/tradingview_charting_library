@@ -180,6 +180,7 @@ export declare type SeriesEventType = "price_scale_changed";
 export declare type SeriesFormat = "price" | "volume";
 export declare type SeriesPriceScale = "new-left" | "new-right" | "no-scale" | EntityId;
 export declare type ServerTimeCallback = (serverTime: number) => void;
+export declare type SetVisibleTimeRange = Omit<VisibleTimeRange, "to"> & Partial<Pick<VisibleTimeRange, "to">>;
 export declare type ShapePoint = StickedPoint | PricedPoint | TimePoint;
 export declare type ShapesGroupId = Nominal<string, "ShapesGroupId">;
 export declare type SingleChartLayoutType = "s";
@@ -859,7 +860,7 @@ export interface IChartWidgetApi {
 	onChartTypeChanged(): ISubscription<(chartType: SeriesStyle) => void>;
 	dataReady(callback: () => void): boolean;
 	crossHairMoved(): ISubscription<(params: CrossHairMovedEventParams) => void>;
-	setVisibleRange(range: VisibleTimeRange, options?: SetVisibleRangeOptions): Promise<void>;
+	setVisibleRange(range: SetVisibleTimeRange, options?: SetVisibleRangeOptions): Promise<void>;
 	setSymbol(symbol: string, callback: () => void): void;
 	setResolution(resolution: ResolutionString, callback: () => void): void;
 	resetData(): void;
