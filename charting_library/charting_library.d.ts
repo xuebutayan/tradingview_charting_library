@@ -146,7 +146,7 @@ export declare type HistoryCallback = (bars: Bar[], meta?: HistoryMetadata) => v
 export declare type IBasicDataFeed = IDatafeedChartApi & IExternalDatafeed;
 export declare type InputFieldValidator = (value: any) => InputFieldValidatorResult;
 export declare type InputFieldValidatorResult = PositiveBaseInputFieldValidatorResult | NegativeBaseInputFieldValidatorResult;
-export declare type LanguageCode = "ar" | "zh" | "cs" | "da_DK" | "nl_NL" | "en" | "et_EE" | "fr" | "de" | "el" | "he_IL" | "hu_HU" | "id_ID" | "it" | "ja" | "ko" | "fa" | "pl" | "pt" | "ro" | "ru" | "sk_SK" | "es" | "sv" | "th" | "tr" | "vi";
+export declare type LanguageCode = "ar" | "zh" | "cs" | "da_DK" | "nl_NL" | "en" | "et_EE" | "fr" | "de" | "el" | "he_IL" | "hu_HU" | "id_ID" | "it" | "ja" | "ko" | "fa" | "pl" | "pt" | "ro" | "ru" | "sk_SK" | "es" | "sv" | "th" | "tr" | "vi" | "no" | "ms_MY" | "zh_TW";
 export declare type LayoutType = SingleChartLayoutType | MultipleChartsLayoutType;
 export declare type LegendMode = "horizontal" | "vertical";
 export declare type MarkConstColors = "red" | "green" | "blue" | "yellow";
