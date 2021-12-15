@@ -1,6 +1,9 @@
 ---
 name: Data Question
 about: Ask a question if you have a problem with connecting your data
+title: ''
+labels: status/conversation
+assignees: ''
 
 ---
 

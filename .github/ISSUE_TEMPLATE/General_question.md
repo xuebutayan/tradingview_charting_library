@@ -1,6 +1,9 @@
 ---
 name: General Question
 about: Ask a question if you cannot find an answer in the documentation
+title: ''
+labels: status/conversation
+assignees: ''
 
 ---
 
