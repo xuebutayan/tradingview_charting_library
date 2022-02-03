@@ -22,4 +22,4 @@ We use GitHub's [Issues tracker][issues-url] for our project. Feel free to creat
 [best-practices-url]: https://github.com/tradingview/charting_library/wiki/Best-practices
 [issues-url]: https://github.com/tradingview/charting_library/issues
 [twitter-url]: https://twitter.com/intent/follow?screen_name=tv_charts
-[discord-url]: https://discord.gg/E6UthXZ
+[discord-url]: https://discord.gg/UC7cGkvn4U
