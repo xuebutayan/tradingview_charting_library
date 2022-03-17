@@ -17,8 +17,7 @@ export default [
 		plugins: [
 			nodeResolve(),
 			!isDevelopmentEnv && terser({
-				ecma: 2017,
-				safari10: true,
+				ecma: 2018,
 				output: { inline_script: true },
 			}),
 		],

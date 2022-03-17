@@ -148,6 +148,8 @@ export class SymbolsStorage {
                     pricescale: extractField(data, 'pricescale', symbolIndex),
                     type: extractField(data, 'type', symbolIndex),
                     session: extractField(data, 'session-regular', symbolIndex),
+                    session_holidays: extractField(data, 'session-holidays', symbolIndex),
+                    corrections: extractField(data, 'corrections', symbolIndex),
                     timezone: extractField(data, 'timezone', symbolIndex),
                     supported_resolutions: definedValueOrDefault(extractField(data, 'supported-resolutions', symbolIndex, true), this._datafeedSupportedResolutions),
                     has_daily: definedValueOrDefault(extractField(data, 'has-daily', symbolIndex), true),

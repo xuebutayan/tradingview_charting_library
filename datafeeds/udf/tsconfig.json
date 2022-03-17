@@ -4,7 +4,7 @@
 		"importHelpers": true,
 		"lib": [
 			"dom",
-			"es2017"
+			"es2018"
 		],
 		"module": "es6",
 		"moduleResolution": "node",
@@ -16,7 +16,7 @@
 		"rootDir": "src",
 		"sourceMap": false,
 		"strict": true,
-		"target": "es2017",
+		"target": "es2018",
 		"types": []
 	},
 	"include": [
