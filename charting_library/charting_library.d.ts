@@ -24,6 +24,151 @@ declare enum StopType {
 	StopLoss = 0,
 	TrailingStop = 1
 }
+export declare const enum ActionId {
+	ChartAddIndicatorToAllCharts = "Chart.AddIndicatorToAllCharts",
+	ChartAddSymbolToWatchList = "Chart.AddSymbolToWatchList",
+	ChartApplyIndicatorsToAllCharts = "Chart.ApplyIndicatorsToAllCharts",
+	ChartChangeTimeZone = "Chart.ChangeTimeZone",
+	ChartClipboardCopyLineTools = "Chart.Clipboard.CopyLineTools",
+	ChartClipboardCopySource = "Chart.Clipboard.CopySource",
+	ChartClipboardPasteSource = "Chart.Clipboard.PasteSource",
+	ChartCrosshairLockVerticalCursor = "Chart.Crosshair.LockVerticalCursor",
+	ChartCrosshairPlusButtonDrawHorizontalLine = "Chart.Crosshair.PlusButton.DrawHorizontalLine",
+	ChartCustomActionId = "Chart.CustomActionId",
+	ChartDialogsShowChangeInterval = "Chart.Dialogs.ShowChangeInterval",
+	ChartDialogsShowChangeSymbol = "Chart.Dialogs.ShowChangeSymbol",
+	ChartDialogsShowCompareOrAddSymbol = "Chart.Dialogs.ShowCompareOrAddSymbol",
+	ChartDialogsShowGeneralSettings = "Chart.Dialogs.ShowGeneralSettings",
+	ChartDialogsShowGeneralSettingsLegendTab = "Chart.Dialogs.ShowGeneralSettings.LegendTab",
+	ChartDialogsShowGeneralSettingsScalesTab = "Chart.Dialogs.ShowGeneralSettings.ScalesTab",
+	ChartDialogsShowGeneralSettingsSymbolTab = "Chart.Dialogs.ShowGeneralSettings.SymbolTab",
+	ChartDialogsShowGoToDate = "Chart.Dialogs.ShowGoToDate",
+	ChartDialogsShowInsertIndicators = "Chart.Dialogs.ShowInsertIndicators",
+	ChartDialogsShowSymbolInfo = "Chart.Dialogs.ShowSymbolInfo",
+	ChartDrawingToolbarToggleVisibility = "Chart.DrawingToolbar.ToggleVisibility",
+	ChartExternalActionId = "Chart.ExternalActionId",
+	ChartFavoriteDrawingToolsToolbarHide = "Chart.FavoriteDrawingToolsToolbar.Hide",
+	ChartIndicatorShowSettingsDialog = "Chart.Indicator.ShowSettingsDialog",
+	ChartLegendToggleBarChangeValuesVisibility = "Chart.Legend.ToggleBarChangeValuesVisibility",
+	ChartLegendToggleIndicatorArgumentsVisibility = "Chart.Legend.ToggleIndicatorArgumentsVisibility",
+	ChartLegendToggleIndicatorTitlesVisibility = "Chart.Legend.ToggleIndicatorTitlesVisibility",
+	ChartLegendToggleIndicatorValuesVisibility = "Chart.Legend.ToggleIndicatorValuesVisibility",
+	ChartLegendToggleOhlcValuesVisibility = "Chart.Legend.ToggleOhlcValuesVisibility",
+	ChartLegendToggleOpenMarketStatusVisibility = "Chart.Legend.ToggleOpenMarketStatusVisibility",
+	ChartLegendToggleSymbolVisibility = "Chart.Legend.ToggleSymbolVisibility",
+	ChartLegendToggleVolumeVisibility = "Chart.Legend.ToggleVolumeVisibility",
+	ChartLines = "Chart.Lines",
+	ChartLinesToggleBidAskLinesVisibility = "Chart.Lines.ToggleBidAskLinesVisibility",
+	ChartLinesToggleHighLowLinesVisibility = "Chart.Lines.ToggleHighLowLinesVisibility",
+	ChartLinesToggleSeriesPrevCloseLineVisibility = "Chart.Lines.ToggleSeriesPrevCloseLineVisibility",
+	ChartLinesToggleSeriesPriceLineVisibility = "Chart.Lines.ToggleSeriesPriceLineVisibility",
+	ChartLineToolBarsPatternToggleFlipped = "Chart.LineTool.BarsPattern.ToggleFlipped",
+	ChartLineToolBarsPatternToggleMirrored = "Chart.LineTool.BarsPattern.ToggleMirrored",
+	ChartLineToolClone = "Chart.LineTool.Clone",
+	ChartLineToolCreateLimitOrderFromState = "Chart.LineTool.CreateLimitOrderFromState",
+	ChartLineToolElliotChangeDegreeProperty = "Chart.LineTool.Elliot.ChangeDegreeProperty",
+	ChartLineToolNoSync = "Chart.LineTool.NoSync",
+	ChartLineToolPitchforkChangeTypeToInside = "Chart.LineTool.Pitchfork.ChangeTypeToInside",
+	ChartLineToolPitchforkChangeTypeToModifiedSchiff = "Chart.LineTool.Pitchfork.ChangeTypeToModifiedSchiff",
+	ChartLineToolPitchforkChangeTypeToOriginal = "Chart.LineTool.Pitchfork.ChangeTypeToOriginal",
+	ChartLineToolPitchforkChangeTypeToSchiff = "Chart.LineTool.Pitchfork.ChangeTypeToSchiff",
+	ChartLineToolSyncInLayout = "Chart.LineTool.SyncInLayout",
+	ChartLineToolTemplates = "Chart.LineTool.Templates",
+	ChartLineToolTemplatesApply = "Chart.LineTool.Templates.Apply",
+	ChartLineToolTemplatesApplyDefaults = "Chart.LineTool.Templates.ApplyDefaults",
+	ChartLineToolTemplatesSaveAs = "Chart.LineTool.Templates.SaveAs",
+	ChartLineToolToolbarChangeFontSizeProperty = "Chart.LineTool.Toolbar.ChangeFontSizeProperty",
+	ChartLineToolToolbarChangeLineStyleToDashed = "Chart.LineTool.Toolbar.ChangeLineStyleToDashed",
+	ChartLineToolToolbarChangeLineStyleToDotted = "Chart.LineTool.Toolbar.ChangeLineStyleToDotted",
+	ChartLineToolToolbarChangeLineStyleToSolid = "Chart.LineTool.Toolbar.ChangeLineStyleToSolid",
+	ChartMarksToggleVisibility = "Chart.Marks.ToggleVisibility",
+	ChartMoveChartInLayout = "Chart.MoveChartInLayout",
+	ChartMoveChartInLayoutBack = "Chart.MoveChartInLayout.Back",
+	ChartMoveChartInLayoutForward = "Chart.MoveChartInLayout.Forward",
+	ChartObjectTreeShow = "Chart.ObjectTree.Show",
+	ChartPaneControlsDeletePane = "Chart.PaneControls.DeletePane",
+	ChartPaneControlsMaximizePane = "Chart.PaneControls.MaximizePane",
+	ChartPaneControlsMinimizePane = "Chart.PaneControls.MinimizePane",
+	ChartPaneControlsMovePaneDown = "Chart.PaneControls.MovePaneDown",
+	ChartPaneControlsMovePaneUp = "Chart.PaneControls.MovePaneUp",
+	ChartPriceScaleLabels = "Chart.PriceScale.Labels",
+	ChartPriceScaleLabelsToggleBidAskLabelsVisibility = "Chart.PriceScale.Labels.ToggleBidAskLabelsVisibility",
+	ChartPriceScaleLabelsToggleHighLowPriceLabelsVisibility = "Chart.PriceScale.Labels.ToggleHighLowPriceLabelsVisibility",
+	ChartPriceScaleLabelsToggleIndicatorsNameLabelsVisibility = "Chart.PriceScale.Labels.ToggleIndicatorsNameLabelsVisibility",
+	ChartPriceScaleLabelsToggleIndicatorsValueLabelsVisibility = "Chart.PriceScale.Labels.ToggleIndicatorsValueLabelsVisibility",
+	ChartPriceScaleLabelsToggleNoOverlappingLabelsVisibility = "Chart.PriceScale.Labels.ToggleNoOverlappingLabelsVisibility",
+	ChartPriceScaleLabelsToggleSeriesLastValueVisibility = "Chart.PriceScale.Labels.ToggleSeriesLastValueVisibility",
+	ChartPriceScaleLabelsToggleSymbolNameLabelsVisibility = "Chart.PriceScale.Labels.ToggleSymbolNameLabelsVisibility",
+	ChartPriceScaleLabelsToggleSymbolPrevCloseValueVisibility = "Chart.PriceScale.Labels.ToggleSymbolPrevCloseValueVisibility",
+	ChartPriceScaleMergeAllScales = "Chart.PriceScale.MergeAllScales",
+	ChartPriceScaleMergeAllScalesToLeft = "Chart.PriceScale.MergeAllScalesToLeft",
+	ChartPriceScaleMergeAllScalesToRight = "Chart.PriceScale.MergeAllScalesToRight",
+	ChartPriceScaleMoveToLeft = "Chart.PriceScale.MoveToLeft",
+	ChartPriceScaleMoveToRight = "Chart.PriceScale.MoveToRight",
+	ChartPriceScaleReset = "Chart.PriceScale.Reset",
+	ChartPriceScaleToggleAddOrderPlusButtonVisibility = "Chart.PriceScale.ToggleAddOrderPlusButtonVisibility",
+	ChartPriceScaleToggleAutoScale = "Chart.PriceScale.ToggleAutoScale",
+	ChartPriceScaleToggleAutoScaleSeriesOnly = "Chart.PriceScale.ToggleAutoScaleSeriesOnly",
+	ChartPriceScaleToggleCountdownToBarCloseVisibility = "Chart.PriceScale.ToggleCountdownToBarCloseVisibility",
+	ChartPriceScaleToggleCurrencyVisibility = "Chart.PriceScale.ToggleCurrencyVisibility",
+	ChartPriceScaleToggleIndexedTo100 = "Chart.PriceScale.ToggleIndexedTo100",
+	ChartPriceScaleToggleInvertScale = "Chart.PriceScale.ToggleInvertScale",
+	ChartPriceScaleToggleLogarithmic = "Chart.PriceScale.ToggleLogarithmic",
+	ChartPriceScaleTogglePercentage = "Chart.PriceScale.TogglePercentage",
+	ChartPriceScaleToggleRegular = "Chart.PriceScale.ToggleRegular",
+	ChartPriceScaleToggleUnitVisibility = "Chart.PriceScale.ToggleUnitVisibility",
+	ChartRedo = "Chart.Redo",
+	ChartRemoveAllIndicators = "Chart.RemoveAllIndicators",
+	ChartRemoveAllIndicatorsAndLineTools = "Chart.RemoveAllIndicatorsAndLineTools",
+	ChartRemoveAllLineTools = "Chart.RemoveAllLineTools",
+	ChartScalesReset = "Chart.Scales.Reset",
+	ChartScalesToggleLockPriceToBarRatio = "Chart.Scales.ToggleLockPriceToBarRatio",
+	ChartScrollToLineTool = "Chart.ScrollToLineTool",
+	ChartSelectedObjectHide = "Chart.SelectedObject.Hide",
+	ChartSelectedObjectRemove = "Chart.SelectedObject.Remove",
+	ChartSelectedObjectShow = "Chart.SelectedObject.Show",
+	ChartSelectedObjectShowSettingsDialog = "Chart.SelectedObject.ShowSettingsDialog",
+	ChartSelectedObjectToggleLocked = "Chart.SelectedObject.ToggleLocked",
+	ChartSeriesPriceScaleToggleAutoScale = "Chart.Series.PriceScale.ToggleAutoScale",
+	ChartSeriesPriceScaleToggleIndexedTo100 = "Chart.Series.PriceScale.ToggleIndexedTo100",
+	ChartSeriesPriceScaleToggleInvertPriceScale = "Chart.Series.PriceScale.ToggleInvertPriceScale",
+	ChartSeriesPriceScaleToggleLogarithmic = "Chart.Series.PriceScale.ToggleLogarithmic",
+	ChartSeriesPriceScaleTogglePercentage = "Chart.Series.PriceScale.TogglePercentage",
+	ChartSeriesPriceScaleToggleRegular = "Chart.Series.PriceScale.ToggleRegular",
+	ChartSessionBreaksToggleVisibility = "Chart.SessionBreaks.ToggleVisibility",
+	ChartSourceChangePriceScale = "Chart.Source.ChangePriceScale",
+	ChartSourceMergeDown = "Chart.Source.MergeDown",
+	ChartSourceMergeUp = "Chart.Source.MergeUp",
+	ChartSourceMoveToNoScale = "Chart.Source.MoveToNoScale",
+	ChartSourceMoveToOtherScale = "Chart.Source.MoveToOtherScale",
+	ChartSourceMoveToPane = "Chart.Source.MoveToPane",
+	ChartSourceUnmergeDown = "Chart.Source.UnmergeDown",
+	ChartSourceUnmergeUp = "Chart.Source.UnmergeUp",
+	ChartSourceVisualOrder = "Chart.Source.VisualOrder",
+	ChartSourceVisualOrderBringForward = "Chart.Source.VisualOrder.BringForward",
+	ChartSourceVisualOrderBringToFront = "Chart.Source.VisualOrder.BringToFront",
+	ChartSourceVisualOrderSendBackward = "Chart.Source.VisualOrder.SendBackward",
+	ChartSourceVisualOrderSendToBack = "Chart.Source.VisualOrder.SendToBack",
+	ChartTimeScaleReset = "Chart.TimeScale.Reset",
+	ChartUndo = "Chart.Undo",
+	ObjectsTreeCreateGroup = "ObjectsTree.CreateGroup",
+	ObjectsTreeRemoveItem = "ObjectsTree.RemoveItem",
+	ObjectsTreeRenameItem = "ObjectsTree.RenameItem",
+	ObjectsTreeToggleItemLocked = "ObjectsTree.ToggleItemLocked",
+	ObjectsTreeToggleItemVisibility = "ObjectsTree.ToggleItemVisibility",
+	TradingCancelOrder = "Trading.CancelOrder",
+	TradingClosePosition = "Trading.ClosePosition",
+	TradingCustomActionId = "Trading.CustomActionId",
+	TradingDomePlaceLimitOrder = "Trading.DomePlaceLimitOrder",
+	TradingDomePlaceMarketOrder = "Trading.DomePlaceMarketOrder",
+	TradingDomePlaceStopLimitOrder = "Trading.DomePlaceStopLimitOrder",
+	TradingDomePlaceStopOrder = "Trading.DomePlaceStopOrder",
+	TradingEditOrder = "Trading.EditOrder",
+	TradingModifyPosition = "Trading.ModifyPosition",
+	TradingReversePosition = "Trading.ReversePosition",
+	TradingSellBuyButtonsToggleVisibility = "Trading.SellBuyButtonsToggleVisibility",
+	TradingTradeFromChart = "Trading.TradeFromChart"
+}
 export declare const enum ChartStyle {
 	Bar = 0,
 	Candle = 1,
@@ -43,6 +188,10 @@ export declare const enum ConnectionStatus {
 	Connecting = 2,
 	Disconnected = 3,
 	Error = 4
+}
+export declare const enum MenuItemType {
+	Separator = "separator",
+	Action = "action"
 }
 export declare const enum NotificationType {
 	Error = 0,
@@ -150,10 +299,13 @@ export declare type ActionMetaInfo = ActionDescriptionWithCallback | MenuSeparat
 export declare type AvailableSaveloadVersions = "1.0" | "1.1";
 export declare type CellAlignment = "left" | "right";
 export declare type ChartActionId = "chartProperties" | "compareOrAdd" | "scalesProperties" | "paneObjectTree" | "insertIndicator" | "symbolSearch" | "changeInterval" | "timeScaleReset" | "chartReset" | "seriesHide" | "studyHide" | "lineToggleLock" | "lineHide" | "scaleSeriesOnly" | "drawingToolbarAction" | "stayInDrawingModeAction" | "hideAllMarks" | "showCountdown" | "showSeriesLastValue" | "showSymbolLabelsAction" | "showStudyLastValue" | "showStudyPlotNamesAction" | "undo" | "redo" | "paneRemoveAllStudiesDrawingTools" | "showSymbolInfoDialog";
+export declare type ContextMenuItemsProcessor = (items: readonly IActionVariant[], actionsFactory: ActionsFactory) => Promise<readonly IActionVariant[]>;
+export declare type ContextMenuRendererFactory = (items: readonly IActionVariant[], params: CreateContextMenuParams, onDestroy: () => void) => Promise<IContextMenuRenderer>;
+export declare type CustomTranslateFunction = (key: string, options?: TranslateOptions) => string | null;
 export declare type DateFormat = keyof typeof dateFormatFunctions;
 export declare type Direction = "buy" | "sell";
 export declare type DomeCallback = (data: DOMData) => void;
-export declare type DrawingEventType = "click" | "move" | "remove" | "hide" | "show";
+export declare type DrawingEventType = "click" | "move" | "remove" | "hide" | "show" | "create";
 export declare type DropdownUpdateParams = Partial<Omit<DropdownParams, "align">>;
 export declare type EditObjectDialogObjectType = "mainSeries" | "drawing" | "study" | "other";
 export declare type EmptyCallback = () => void;
@@ -166,6 +318,7 @@ export declare type GroupLockState = "Locked" | "Unlocked" | "Partial";
 export declare type GroupVisibilityState = "Visible" | "Invisible" | "Partial";
 export declare type HeaderWidgetButtonsMode = "fullsize" | "compact" | "adaptive";
 export declare type HistoryCallback = (bars: Bar[], meta?: HistoryMetadata) => void;
+export declare type IActionVariant = IAction | ISeparator;
 export declare type IBasicDataFeed = IDatafeedChartApi & IExternalDatafeed;
 export declare type INumberFormatter = IFormatter<number>;
 export declare type InputFieldValidator = (value: any) => InputFieldValidatorResult;
@@ -191,8 +344,11 @@ export declare type MultipleChartsLayoutType = "2h" | "2v" | "2-1" | "3s" | "3h"
 export declare type Nominal<T, Name extends string> = T & {
 	[Symbol.species]: Name;
 };
+export declare type OnActionExecuteHandler = (action: IAction) => void;
+export declare type OnActionUpdateHandler = (action: IAction) => void;
 export declare type OnReadyCallback = (configuration: DatafeedConfiguration) => void;
 export declare type Order = PlacedOrder | BracketOrder;
+export declare type PageName = "watchlist_details_news" | "data_window" | "object_tree";
 export declare type PineJS = any;
 export declare type QuoteData = QuoteOkData | QuoteErrorData;
 export declare type QuotesCallback = (data: QuoteData[]) => void;
@@ -214,7 +370,7 @@ export declare type StudyInputValue = string | number | boolean;
 export declare type StudyOverrideValueType = string | number | boolean;
 export declare type StudyPriceScale = "new-left" | "new-right" | "no-scale" | "as-series";
 export declare type SubscribeBarsCallback = (bar: Bar) => void;
-export declare type SupportedLineTools = "text" | "anchored_text" | "note" | "anchored_note" | "signpost" | "double_curve" | "arc" | "icon" | "arrow_up" | "arrow_down" | "arrow_left" | "arrow_right" | "price_label" | "price_note" | "arrow_marker" | "flag" | "vertical_line" | "horizontal_line" | "cross_line" | "horizontal_ray" | "trend_line" | "info_line" | "trend_angle" | "arrow" | "ray" | "extended" | "parallel_channel" | "disjoint_angle" | "flat_bottom" | "pitchfork" | "schiff_pitchfork_modified" | "schiff_pitchfork" | "balloon" | "inside_pitchfork" | "pitchfan" | "gannbox" | "gannbox_square" | "gannbox_fixed" | "gannbox_fan" | "fib_retracement" | "fib_trend_ext" | "fib_speed_resist_fan" | "fib_timezone" | "fib_trend_time" | "fib_circles" | "fib_spiral" | "fib_speed_resist_arcs" | "fib_channel" | "xabcd_pattern" | "cypher_pattern" | "abcd_pattern" | "callout" | "triangle_pattern" | "3divers_pattern" | "head_and_shoulders" | "fib_wedge" | "elliott_impulse_wave" | "elliott_triangle_wave" | "elliott_triple_combo" | "elliott_correction" | "elliott_double_combo" | "cyclic_lines" | "time_cycles" | "sine_line" | "long_position" | "short_position" | "forecast" | "date_range" | "price_range" | "date_and_price_range" | "bars_pattern" | "ghost_feed" | "projection" | "rectangle" | "rotated_rectangle" | "ellipse" | "triangle" | "polyline" | "path" | "curve" | "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom" | "brush" | "highlighter" | "regression_trend" | "fixed_range_volume_profile";
+export declare type SupportedLineTools = "text" | "anchored_text" | "note" | "anchored_note" | "signpost" | "double_curve" | "arc" | "icon" | "arrow_up" | "arrow_down" | "arrow_left" | "arrow_right" | "price_label" | "price_note" | "arrow_marker" | "flag" | "vertical_line" | "horizontal_line" | "cross_line" | "horizontal_ray" | "trend_line" | "info_line" | "trend_angle" | "arrow" | "ray" | "extended" | "parallel_channel" | "disjoint_angle" | "flat_bottom" | "pitchfork" | "schiff_pitchfork_modified" | "schiff_pitchfork" | "balloon" | "inside_pitchfork" | "pitchfan" | "gannbox" | "gannbox_square" | "gannbox_fixed" | "gannbox_fan" | "fib_retracement" | "fib_trend_ext" | "fib_speed_resist_fan" | "fib_timezone" | "fib_trend_time" | "fib_circles" | "fib_spiral" | "fib_speed_resist_arcs" | "fib_channel" | "xabcd_pattern" | "cypher_pattern" | "abcd_pattern" | "callout" | "triangle_pattern" | "3divers_pattern" | "head_and_shoulders" | "fib_wedge" | "elliott_impulse_wave" | "elliott_triangle_wave" | "elliott_triple_combo" | "elliott_correction" | "elliott_double_combo" | "cyclic_lines" | "time_cycles" | "sine_line" | "long_position" | "short_position" | "forecast" | "date_range" | "price_range" | "date_and_price_range" | "bars_pattern" | "ghost_feed" | "projection" | "rectangle" | "rotated_rectangle" | "circle" | "ellipse" | "triangle" | "polyline" | "path" | "curve" | "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom" | "brush" | "highlighter" | "regression_trend" | "fixed_range_volume_profile";
 export declare type SymbolSearchCompleteOverrideFunction = (symbol: string) => Promise<string>;
 export declare type SymbolType = "stock" | "index" | "forex" | "futures" | "bitcoin" | "crypto" | "undefined" | "expression" | "spread" | "cfd" | "economic" | "equity" | "dr" | "bond" | "right" | "warrant" | "fund" | "structured";
 export declare type TextInputFieldValidator = (value: string) => InputFieldValidatorResult;
@@ -242,8 +398,10 @@ export declare type TickMarkType =
  | "TimeWithSeconds";
 export declare type TimeFrameValue = TimeFramePeriodBack | TimeFrameTimeRange;
 export declare type Timezone = "Etc/UTC" | CustomTimezones;
+export declare type TimezoneId = CustomTimezones | "Etc/UTC" | "exchange";
 export declare type TradableSolutions = ChangeAccountSolution | ChangeSymbolSolution;
-export declare type TradingDialogCustomField = TextWithCheckboxFieldMetaInfo | CustomComboBoxMetaInfo;
+export declare type TradingDialogCustomField = CheckboxFieldMetaInfo | TextWithCheckboxFieldMetaInfo | CustomComboBoxMetaInfo;
+export declare type VisiblePlotsSet = "ohlcv" | "ohlc" | "c";
 export declare type WatchListSymbolListAddedCallback = (listId: string, symbols: string[]) => void;
 export declare type WatchListSymbolListChangedCallback = (listId: string) => void;
 export declare type WatchListSymbolListRemovedCallback = (listId: string) => void;
@@ -323,6 +481,75 @@ export interface ActionDescription {
 export interface ActionDescriptionWithCallback extends ActionDescription {
 	action: (a?: ActionDescription) => void;
 }
+export interface ActionOptions extends Partial<Omit<ActionState, "actionId">>, Pick<ActionState, "actionId"> {
+	/**
+	 * A function which will be called when an action should be executed (e.g. when a user clicks on the item).
+	 */
+	onExecute?: OnActionExecuteHandler;
+}
+export interface ActionState {
+	/**
+	 * Human-readable, non-unique ID of an action item. Similar to {@link label}, but language-agnostic.
+	 */
+	actionId: ActionId;
+	active: boolean;
+	/**
+	 * Text title of an action
+	 */
+	label: string;
+	/**
+	 * Whether an action is disabled or not (disabled actions are usually cannot be executed and displayed grayed out)
+	 */
+	disabled: boolean;
+	/**
+	 * Sub-items of an action
+	 */
+	subItems: IActionVariant[];
+	/**
+	 * Whether an action should have a checkbox next to it.
+	 */
+	checkable: boolean;
+	/**
+	 * If {@link checkable} is `true` then whether current state is checked or not.
+	 */
+	checked: boolean;
+	/**
+	 * A hint of an action.
+	 */
+	hint?: string;
+	/**
+	 * A string of SVG icon for an action. A string should be a string representation of SVG (not a path/URL).
+	 */
+	icon?: string;
+	/**
+	 * If {@link checkable} is `true` then an icon to be used when {@link checked} is `true`.
+	 */
+	iconChecked?: string;
+	/**
+	 * Whether an action is still in loading state (it means that it's data is not ready yet).
+	 * Usually in this case a spinner/loader will be displayed instead of this action.
+	 */
+	loading: boolean;
+	/**
+	 * A string that represents a shortcut hint for this action.
+	 */
+	shortcutHint?: string;
+}
+export interface ActionsFactory {
+	/**
+	 * Creates an action with provided options.
+	 */
+	createAction: (options: ActionOptions) => IUpdatableAction;
+	/**
+	 * Creates an action that will wait for a promise to get its options.
+	 * In terms of GUI until a promise is resolved the loader/spinner will be displayed.
+	 */
+	createAsyncAction: (loader: () => Promise<ActionOptions>) => IUpdatableAction;
+	/**
+	 * Creates a separator item.
+	 */
+	createSeparator: () => ISeparator;
+}
 export interface AdditionalSymbolInfoField {
 	title: string;
 	propertyName: string;
@@ -366,6 +593,7 @@ export interface BaselineStylePreferences {
 	bottomFillColor2: string;
 	topLineColor: string;
 	bottomLineColor: string;
+	baselineColor: string;
 	topLineWidth: number;
 	bottomLineWidth: number;
 	transparency: number;
@@ -391,7 +619,9 @@ export interface BrokerConfigFlags {
 	supportTrades?: boolean;
 	supportClosePosition?: boolean;
 	supportCloseTrade?: boolean;
+	supportModifyOrderPrice?: boolean;
 	supportEditAmount?: boolean;
+	supportModifyBrackets?: boolean;
 	supportLevel2Data?: boolean;
 	supportDOM?: boolean;
 	supportMultiposition?: boolean;
@@ -406,12 +636,12 @@ export interface BrokerConfigFlags {
 	supportMarketBrackets?: boolean;
 	supportSymbolSearch?: boolean;
 	supportModifyDuration?: boolean;
-	supportModifyOrder?: boolean;
 	supportModifyTrailingStop?: boolean;
 	supportMargin?: boolean;
 	calculatePLUsingLast?: boolean;
 	supportPlaceOrderPreview?: boolean;
 	supportModifyOrderPreview?: boolean;
+	supportLeverage?: boolean;
 	supportOrdersHistory?: boolean;
 	supportAddBracketsToExistingOrder?: boolean;
 	supportBalances?: boolean;
@@ -443,6 +673,11 @@ export interface BrokerConfigFlags {
 	 * @deprecated
 	 */
 	supportBrackets?: boolean;
+	/**
+	 * Use supportModifyOrderPrice, supportEditAmount and supportModifyBrackets instead.
+	 * @deprecated
+	 */
+	supportModifyOrder?: boolean;
 }
 export interface BrokerCustomUI {
 	showOrderDialog?: (order: OrderTemplate | Order, focus?: OrderTicketFocusControl) => Promise<boolean>;
@@ -530,6 +765,7 @@ export interface ChartingLibraryWidgetOptions {
 	preset?: "mobile";
 	time_frames?: TimeFrameItem[];
 	custom_css_url?: string;
+	custom_font_family?: string;
 	favorites?: Favorites;
 	save_load_adapter?: IExternalSaveLoadAdapter;
 	loading_screen?: LoadingScreenOptions;
@@ -539,8 +775,17 @@ export interface ChartingLibraryWidgetOptions {
 	custom_indicators_getter?: (PineJS: PineJS) => Promise<readonly CustomIndicator[]>;
 	additional_symbol_info_fields?: AdditionalSymbolInfoField[];
 	header_widget_buttons_mode?: HeaderWidgetButtonsMode;
+	context_menu?: ContextMenuOptions;
 	time_scale?: TimeScaleOptions;
+	custom_translate_function?: CustomTranslateFunction;
 	symbol_search_complete?: SymbolSearchCompleteOverrideFunction;
+	settings_overrides?: Overrides;
+}
+export interface CheckboxFieldMetaInfo extends CustomFieldMetaInfoBase {
+	inputType: "Checkbox";
+	value: boolean;
+	supportModify?: boolean;
+	help?: string;
 }
 export interface ClientSnapshotOptions {
 	backgroundColor: string;
@@ -559,14 +804,66 @@ export interface ContextMenuItem {
 	text: string;
 	click: EmptyCallback;
 }
+export interface ContextMenuOptions {
+	items_processor?: ContextMenuItemsProcessor;
+	/**
+	 * This API is experimental and might be changed significantly in the future releases.
+	 */
+	renderer_factory?: ContextMenuRendererFactory;
+}
+export interface ContextMenuPosition {
+	clientX: number;
+	clientY: number;
+	touches?: readonly {
+		clientX: number;
+		clientY: number;
+	}[];
+	/**
+	 * Tells what side of the context menu widget should be used to "attach" to a provided x coordinate.
+	 * If the value is `undefined`, then you may treat it based on whether it is rtl or not (e.g. `'right'` for rtl and `'left'` otherwise).
+	 */
+	attachToXBy?: "left" | "right";
+	/**
+	 * Tells what side of the context menu widget should be used to "attach" to a provided y coordinate:
+	 * - `'auto'` means similar to `'top'` but the menu could be expanded above the coordinate if needed (if there is no enough space to place it below)
+	 * - `'auto-strict'` means `'top'` if the whole menu fits the space below the coordinate and `'bottom'` otherwise (see {@link boxHeight})
+	 * - `'top'` means that the menu should be placed to the bottom of y coordinate (the menu should be attached by its bottom to y coordinate)
+	 * - `'bottom'` means that the menu should be placed above y coordinate (the menu should be attached by its top to y coordinate)
+	 *
+	 * You may treat `undefined` as `'auto'`.
+	 */
+	attachToYBy?: "auto" | "auto-strict" | "top" | "bottom";
+	/**
+	 * The height of a box the context menu should avoid while calculating coordinates (see {@link attachToYBy}).
+	 *
+	 * You may treat `undefined` as `0`.
+	 */
+	boxHeight?: number;
+}
 export interface CreateButtonOptions {
 	align: "right" | "left";
+}
+export interface CreateContextMenuParams {
+	menuName: string;
+	detail?: {
+		type: "series";
+		id: string;
+	} | {
+		type: "study";
+		id: string | null;
+	} | {
+		type: "shape";
+		id: number | string | null;
+	} | {
+		type: "groupOfShapes";
+		id: string | null;
+	};
 }
 export interface CreateMultipointShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
 	shape?: Exclude<SupportedLineTools, "cursor" | "dot" | "arrow_cursor" | "eraser" | "measure" | "zoom">;
 }
 export interface CreateShapeOptions<TOverrides extends object> extends CreateShapeOptionsBase<TOverrides> {
-	shape?: "arrow_up" | "arrow_down" | "flag" | "vertical_line" | "horizontal_line" | "long_position" | "short_position";
+	shape?: "arrow_up" | "arrow_down" | "flag" | "vertical_line" | "horizontal_line" | "long_position" | "short_position" | "icon";
 	ownerStudyId?: EntityId;
 }
 export interface CreateShapeOptionsBase<TOverrides extends object> {
@@ -605,6 +902,12 @@ export interface CryptoBalance {
 	longName?: string;
 	btcValue?: number;
 }
+export interface CurrencyItem {
+	id: string;
+	code: string;
+	logoUrl?: string;
+	description?: string;
+}
 export interface CustomComboBoxItem {
 	text: string;
 	value: string;
@@ -612,6 +915,13 @@ export interface CustomComboBoxItem {
 export interface CustomComboBoxMetaInfo extends CustomInputFieldMetaInfo {
 	inputType: "ComboBox";
 	items: CustomComboBoxItem[];
+}
+export interface CustomFieldMetaInfoBase {
+	inputType: string;
+	id: string;
+	title: string;
+	value?: any;
+	saveToSettings?: boolean;
 }
 export interface CustomFields {
 	[key: string]: any;
@@ -630,19 +940,14 @@ export interface CustomIndicator {
 	readonly metainfo: any;
 	readonly constructor: any;
 }
-export interface CustomInputFieldMetaInfo {
-	inputType: string;
-	id: string;
-	title: string;
+export interface CustomInputFieldMetaInfo extends CustomFieldMetaInfoBase {
 	preventModify?: boolean;
 	placeHolder?: string;
-	value?: any;
 	validator?: InputFieldValidator;
 	customInfo?: any;
-	saveToSettings?: boolean;
 }
 export interface CustomInputFieldsValues {
-	[fieldId: string]: TextWithCheckboxValue | string | any;
+	[fieldId: string]: TextWithCheckboxValue | boolean | string | any;
 }
 export interface DOMData {
 	snapshot: boolean;
@@ -657,7 +962,7 @@ export interface DatafeedConfiguration {
 	exchanges?: Exchange[];
 	supported_resolutions?: ResolutionString[];
 	units?: Record<string, Unit[]>;
-	currency_codes?: string[];
+	currency_codes?: (string | CurrencyItem)[];
 	supports_marks?: boolean;
 	supports_time?: boolean;
 	supports_timescale_marks?: boolean;
@@ -802,6 +1107,21 @@ export interface HollowCandleStylePreferences {
 	wickUpColor: string;
 	wickDownColor: string;
 }
+export interface IAction extends IMenuItem {
+	readonly type: MenuItemType.Action;
+	/**
+	 * A method which will be called when an action should be executed (e.g. when a user clicks on the item)
+	 */
+	execute(): void;
+	/**
+	 * @returns Returns a state object of the action.
+	 */
+	getState(): Readonly<ActionState>;
+	/**
+	 * @returns A subscription for an event when an action is updated.
+	 */
+	onUpdate(): ISubscription<OnActionUpdateHandler>;
+}
 export interface IBoxedValue<T> extends IBoxedValueReadOnly<T> {
 	setValue(value: T): void;
 }
@@ -870,7 +1190,6 @@ export interface IBrokerConnectionAdapterHost {
 	setButtonDropdownActions(descriptions: ActionMetaInfo[]): void;
 	activateBottomWidget(): Promise<void>;
 	showTradingProperties(): void;
-	suggestedQty(): SuggestedQuantity;
 	getSymbolMinTick(symbol: string): Promise<number>;
 	showMessageDialog(title: string, text: string, textHasHTML: boolean): void;
 	showConfirmDialog(title: string, content: string | string[], mainButtonText?: string, cancelButtonText?: string, showDisableConfirmationsCheckbox?: boolean): Promise<boolean>;
@@ -893,6 +1212,9 @@ export interface IBrokerWithoutRealtime extends IBrokerCommon {
 	closeTrade?(tradeId: string, amount?: number): Promise<void>;
 	editPositionBrackets?(positionId: string, brackets: Brackets, customFields?: CustomInputFieldsValues): Promise<void>;
 	editTradeBrackets?(tradeId: string, brackets: Brackets): Promise<void>;
+	leverageInfo?(leverageInfoParams: LeverageInfoParams): Promise<LeverageInfo>;
+	setLeverage?(leverageSetParams: LeverageSetParams): Promise<LeverageSetResult>;
+	previewLeverage?(leverageSetParams: LeverageSetParams): Promise<LeveragePreviewResult>;
 	/**
 	 * @deprecated Brokers should always send PL and equity updates
 	 */
@@ -941,9 +1263,16 @@ export interface IChartWidgetApi {
 	bringForward(sources: readonly EntityId[]): void;
 	sendBackward(sources: readonly EntityId[]): void;
 	/**
-	 * @deprecated Use shape/study API instead ([getStudyById] / [getShapeById])
+	 * @deprecated Use shape/study API instead.
+	 * @see {@link getStudyById}
+	 * @see {@link getShapeById}
 	 */
 	setEntityVisibility(entityId: EntityId, isVisible: boolean): void;
+	createStudy<TOverrides extends StudyOverrides>(name: string, forceOverlay?: boolean, lock?: boolean, inputs?: Record<string, StudyInputValue>, overrides?: TOverrides, options?: CreateStudyOptions): Promise<EntityId | null>;
+	/**
+	 * @deprecated Prefer `createStudy` function that relies on named properties for `inputs`.
+	 * @see {@link createStudy}
+	 */
 	createStudy<TStudyInputValue extends StudyInputValue, TOverrides extends StudyOverrides>(name: string, forceOverlay?: boolean, lock?: boolean, inputs?: TStudyInputValue[], overrides?: TOverrides, options?: CreateStudyOptions): Promise<EntityId | null>;
 	getStudyById(entityId: EntityId): IStudyApi;
 	getSeries(): ISeriesApi;
@@ -968,12 +1297,27 @@ export interface IChartWidgetApi {
 	 * @deprecated Use Price Scale API instead
 	 */
 	getVisiblePriceRange(): VisiblePriceRange;
+	/**
+	 * @deprecated Use rightOffset from TimeScale API instead
+	 */
 	scrollPosition(): number;
+	/**
+	 * @deprecated Use defaultRightOffset from TimeScale API instead
+	 */
 	defaultScrollPosition(): number;
 	priceFormatter(): INumberFormatter;
 	chartType(): SeriesStyle;
+	/**
+	 * @deprecated Use Timezone API instead
+	 * @see {@link getTimezoneApi}
+	 */
 	setTimezone(timezone: "exchange" | Timezone): void;
+	/**
+	 * @deprecated Use Timezone API instead
+	 * @see {@link getTimezoneApi}
+	 */
 	getTimezone(): "exchange" | Timezone;
+	getTimezoneApi(): ITimezoneApi;
 	getPanes(): IPaneApi[];
 	exportData(options?: Partial<ExportDataOptions>): Promise<ExportedData>;
 	canZoomOut(): boolean;
@@ -1025,6 +1369,7 @@ export interface IChartingLibraryWidget {
 	applyStudiesOverrides(overrides: object): void;
 	watchList(): Promise<IWatchListApi>;
 	news(): Promise<INewsApi>;
+	widgetbar(): Promise<IWidgetbarApi>;
 	activeChart(): IChartWidgetApi;
 	chartsCount(): number;
 	layout(): LayoutType;
@@ -1048,6 +1393,20 @@ export interface IChartingLibraryWidget {
 	navigationButtonsVisibility(): IWatchedValue<VisibilityType>;
 	paneButtonsVisibility(): IWatchedValue<VisibilityType>;
 	dateFormat(): IWatchedValue<DateFormat>;
+}
+export interface IContextMenuRenderer {
+	/**
+	 * Displays the menu at the position {@link pos}.
+	 */
+	show(pos: ContextMenuPosition): void;
+	/**
+	 * hides the menu.
+	 */
+	hide(): void;
+	/**
+	 * @returns Returns whether the menu is currently displayed.
+	 */
+	isShown(): boolean;
 }
 export interface IDatafeedChartApi {
 	getMarks?(symbolInfo: LibrarySymbolInfo, from: number, to: number, onDataCallback: GetMarksCallback<Mark>, resolution: ResolutionString): void;
@@ -1074,6 +1433,20 @@ export interface IDatafeedQuotesApi {
 }
 export interface IDelegate<TFunc extends Function> extends ISubscription<TFunc> {
 	fire: TFunc;
+}
+/**
+ * IDESTRØYÅBLE
+ * ┌────────────────┐
+ * │ ┏━━━━━┓        │
+ * │ ┃ ○ ○ ┃        │  ┏━━━━━┓           ┌╲╌╌╱╌┐
+ * │ ┃ ○ ○ ┃    x 1 │  ┃ ○ ○ ┃ destroy() ┊ ╲╱  ╵
+ * │ ┠─────┨        │  ┃ ○ ○ ┃  ╭───╯╲   ╷ ╱╲  ┊
+ * │ ┗━━━━━┛        │  ┠─────┨  ╰───╮╱   ├╱ ╌╲ ┤
+ * │ destroy()  x 1 │  ┗━━━━━┛           └ ╌╌ ╌┘
+ * └────────────────┘
+ */
+export interface IDestroyable {
+	destroy(): void;
 }
 export interface IDropdownApi {
 	applyOptions(options: DropdownUpdateParams): void;
@@ -1108,7 +1481,7 @@ export interface IExternalDatafeed {
 export interface IExternalSaveLoadAdapter {
 	getAllCharts(): Promise<ChartMetaInfo[]>;
 	removeChart<T extends number | string>(id: T): Promise<void>;
-	saveChart(chartData: ChartData): Promise<number>;
+	saveChart(chartData: ChartData): Promise<string>;
 	getChartContent(chartId: number): Promise<string>;
 	getAllStudyTemplates(): Promise<StudyTemplateMetaInfo[]>;
 	removeStudyTemplate(studyTemplateInfo: StudyTemplateMetaInfo): Promise<void>;
@@ -1138,6 +1511,13 @@ export interface ILineDataSourceApi {
 	setProperties(newProperties: object): void;
 	getPoints(): PricedPoint[];
 	setPoints(points: ShapePoint[]): void;
+}
+export interface IMenuItem {
+	readonly type: MenuItemType;
+	/**
+	 * An unique ID of an action item. Could be used to distinguish actions between each other.
+	 */
+	readonly id: string;
 }
 export interface INewsApi {
 	refresh(): void;
@@ -1302,6 +1682,9 @@ export interface ISelectionApi {
 	onChanged(): ISubscription<() => void>;
 	canBeAddedToSelection(entity: EntityId): boolean;
 }
+export interface ISeparator extends IMenuItem {
+	readonly type: MenuItemType.Separator;
+}
 export interface ISeriesApi {
 	isUserEditEnabled(): boolean;
 	setUserEditEnabled(enabled: boolean): void;
@@ -1385,6 +1768,21 @@ export interface ITimeScaleApi {
 	 * This is to detect when the chart has been scrolled left/right
 	 */
 	rightOffsetChanged(): ISubscription<(rightOffset: number) => void>;
+	setRightOffset(offset: number): void;
+	setBarSpacing(newBarSpacing: number): void;
+	barSpacing(): number;
+	rightOffset(): number;
+	width(): number;
+	defaultRightOffset(): IWatchedValue<number>;
+}
+export interface ITimezoneApi {
+	availableTimezones(): readonly TimezoneInfo[];
+	getTimezone(): TimezoneInfo;
+	setTimezone(timezone: TimezoneId, options?: UndoOptions): void;
+	onTimezoneChanged(): ISubscription<(timezone: TimezoneId) => void>;
+}
+export interface IUpdatableAction extends IAction {
+	update(options: Partial<ActionOptions>): void;
 }
 export interface IWatchListApi {
 	defaultList(): string[];
@@ -1412,6 +1810,11 @@ export interface IWatchedValue<T> extends IWatchedValueReadonly<T>, IObservableV
 export interface IWatchedValueReadonly<T> extends IObservableValueReadOnly<T> {
 	subscribe(callback: (value: T) => void, options?: WatchedValueSubscribeOptions): void;
 	unsubscribe(callback?: ((value: T) => void) | null): void;
+}
+export interface IWidgetbarApi extends IDestroyable {
+	showPage(pageName: PageName): void;
+	hidePage(pageName: PageName): void;
+	isPageVisible(pageName: PageName): boolean;
 }
 export interface InitialSettingsMap {
 	[key: string]: string;
@@ -1448,6 +1851,30 @@ export interface KagiStylePreferences {
 	downColor: string;
 	upColorProjection: string;
 	downColorProjection: string;
+}
+export interface LeverageInfo {
+	title: string;
+	leverage: number;
+	min: number;
+	max: number;
+	step: number;
+}
+export interface LeverageInfoParams {
+	symbol: string;
+	orderType: OrderType;
+	side: Side;
+	customFields?: CustomInputFieldsValues;
+}
+export interface LeveragePreviewResult {
+	infos?: string[];
+	warnings?: string[];
+	errors?: string[];
+}
+export interface LeverageSetParams extends LeverageInfoParams {
+	leverage: number;
+}
+export interface LeverageSetResult {
+	leverage: number;
 }
 export interface LibrarySymbolInfo {
 	/**
@@ -1526,7 +1953,15 @@ export interface LibrarySymbolInfo {
 	has_daily?: boolean;
 	has_weekly_and_monthly?: boolean;
 	has_empty_bars?: boolean;
+	/**
+	 * @deprecated
+	 * use visible_plots_set instead
+	 */
 	has_no_volume?: boolean;
+	/**
+	 * Represents what values are supported by the symbol
+	 */
+	visible_plots_set?: VisiblePlotsSet;
 	/**
 	 * Integer showing typical volume value decimal places for this symbol
 	 */
@@ -1922,11 +2357,6 @@ export interface SuccessFormatterParseResult<T> extends FormatterParseResult {
 	value: T;
 	suggest?: string;
 }
-export interface SuggestedQuantity {
-	changed: IDelegate<(symbol: string) => void>;
-	value(symbol: string): Promise<number>;
-	setValue(symbol: string, value: number): void;
-}
 export interface SymbolExt {
 	symbol: string;
 	full_name: string;
@@ -1988,6 +2418,11 @@ export interface TimescaleMark {
 	label: string;
 	tooltip: string[];
 }
+export interface TimezoneInfo {
+	id: TimezoneId;
+	title: string;
+	offset?: number;
+}
 export interface Trade extends CustomFields {
 	id: string;
 	date: number;
@@ -2030,6 +2465,12 @@ export interface TradingTerminalWidgetOptions extends ChartingLibraryWidgetOptio
 	trading_customization?: TradingCustomization;
 	brokerFactory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
 	broker_factory?(host: IBrokerConnectionAdapterHost): IBrokerWithoutRealtime | IBrokerTerminal;
+}
+export interface TranslateOptions {
+	plural?: string;
+	count?: number;
+	context?: string;
+	replace?: Record<string, string>;
 }
 export interface UndoOptions {
 	disableUndo?: boolean;
@@ -2080,7 +2521,7 @@ export interface WidgetBarParams {
 		readonly?: boolean;
 	};
 }
-export type CustomTimezones = "Africa/Cairo" | "Africa/Johannesburg" | "Africa/Lagos" | "America/Argentina/Buenos_Aires" | "America/Bogota" | "America/Caracas" | "America/Chicago" | "America/El_Salvador" | "America/Juneau" | "America/Lima" | "America/Los_Angeles" | "America/Mexico_City" | "America/New_York" | "America/Phoenix" | "America/Santiago" | "America/Sao_Paulo" | "America/Toronto" | "America/Vancouver" | "Asia/Almaty" | "Asia/Ashkhabad" | "Asia/Bahrain" | "Asia/Bangkok" | "Asia/Chongqing" | "Asia/Dubai" | "Asia/Ho_Chi_Minh" | "Asia/Hong_Kong" | "Asia/Jakarta" | "Asia/Jerusalem" | "Asia/Kathmandu" | "Asia/Kolkata" | "Asia/Kuwait" | "Asia/Muscat" | "Asia/Qatar" | "Asia/Riyadh" | "Asia/Seoul" | "Asia/Shanghai" | "Asia/Singapore" | "Asia/Taipei" | "Asia/Tehran" | "Asia/Tokyo" | "Atlantic/Reykjavik" | "Australia/ACT" | "Australia/Adelaide" | "Australia/Brisbane" | "Australia/Perth" | "Australia/Sydney" | "Europe/Amsterdam" | "Europe/Athens" | "Europe/Belgrade" | "Europe/Berlin" | "Europe/Brussels" | "Europe/Copenhagen" | "Europe/Dublin" | "Europe/Helsinki" | "Europe/Istanbul" | "Europe/Lisbon" | "Europe/London" | "Europe/Luxembourg" | "Europe/Madrid" | "Europe/Malta" | "Europe/Moscow" | "Europe/Oslo" | "Europe/Paris" | "Europe/Riga" | "Europe/Rome" | "Europe/Stockholm" | "Europe/Tallinn" | "Europe/Vilnius" | "Europe/Warsaw" | "Europe/Zurich" | "Pacific/Auckland" | "Pacific/Chatham" | "Pacific/Fakaofo" | "Pacific/Honolulu" | "Pacific/Norfolk" | "US/Mountain";
+export type CustomTimezones = "Africa/Cairo" | "Africa/Johannesburg" | "Africa/Lagos" | "America/Argentina/Buenos_Aires" | "America/Bogota" | "America/Caracas" | "America/Chicago" | "America/El_Salvador" | "America/Juneau" | "America/Lima" | "America/Los_Angeles" | "America/Mexico_City" | "America/New_York" | "America/Phoenix" | "America/Santiago" | "America/Sao_Paulo" | "America/Toronto" | "America/Vancouver" | "Asia/Almaty" | "Asia/Ashkhabad" | "Asia/Bahrain" | "Asia/Bangkok" | "Asia/Chongqing" | "Asia/Dubai" | "Asia/Ho_Chi_Minh" | "Asia/Hong_Kong" | "Asia/Jakarta" | "Asia/Jerusalem" | "Asia/Karachi" | "Asia/Kathmandu" | "Asia/Kolkata" | "Asia/Kuwait" | "Asia/Manila" | "Asia/Muscat" | "Asia/Qatar" | "Asia/Riyadh" | "Asia/Seoul" | "Asia/Shanghai" | "Asia/Singapore" | "Asia/Taipei" | "Asia/Tehran" | "Asia/Tokyo" | "Atlantic/Reykjavik" | "Australia/ACT" | "Australia/Adelaide" | "Australia/Brisbane" | "Australia/Perth" | "Australia/Sydney" | "Europe/Amsterdam" | "Europe/Athens" | "Europe/Belgrade" | "Europe/Berlin" | "Europe/Bratislava" | "Europe/Brussels" | "Europe/Bucharest" | "Europe/Copenhagen" | "Europe/Dublin" | "Europe/Helsinki" | "Europe/Istanbul" | "Europe/Lisbon" | "Europe/London" | "Europe/Luxembourg" | "Europe/Madrid" | "Europe/Malta" | "Europe/Moscow" | "Europe/Oslo" | "Europe/Paris" | "Europe/Riga" | "Europe/Rome" | "Europe/Stockholm" | "Europe/Tallinn" | "Europe/Vilnius" | "Europe/Warsaw" | "Europe/Zurich" | "Pacific/Auckland" | "Pacific/Chatham" | "Pacific/Fakaofo" | "Pacific/Honolulu" | "Pacific/Norfolk" | "US/Mountain";
 
 export as namespace TradingView;
 

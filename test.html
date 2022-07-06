@@ -6,7 +6,6 @@
 
 		<!-- Fix for iOS Safari zooming bug -->
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 
 		<script type="text/javascript" src="charting_library/charting_library.standalone.js"></script>
 		<script type="text/javascript" src="datafeeds/udf/dist/bundle.js"></script>
@@ -25,7 +24,12 @@
 			}
 
 			function initOnReady() {
-				var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed("https://demo-feed-data.tradingview.com");
+				var datafeedUrl = "https://demo-feed-data.tradingview.com";
+				var customDataUrl = getParameterByName('dataUrl');
+				if (customDataUrl !== "") {
+					datafeedUrl = customDataUrl.startsWith('https://') ? customDataUrl : `https://${customDataUrl}`;
+				}
+				var udf_datafeed = new Datafeeds.UDFCompatibleDatafeed(datafeedUrl);
 
 				var widget = window.tvWidget = new TradingView.widget({
 					// debug: true, // uncomment this line to see Library errors and warnings in the console
